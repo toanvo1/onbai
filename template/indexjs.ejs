@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+</head>
+
+<body>
+    
+    <form action="/add" method="post" enctype="multipart/form-data">
+
+        <input type="text" name="idmonHoc"  id="idmonHoc" placeholder="id">
+        <input type="text" name="monHoc" id="monHoc" placeholder="Mon Hoc">
+        <input type="file" name="image" id="image" placeholder="image" accept="image/*">
+
+     
+
+        <input type="submit" value="ADD">
+    </form>
+
+    <form action="/delete" method="POST" enctype="multipart/form-data">
+        <table>
+            <tr>
+                <th>
+                    STT
+                </th>
+                <th>
+                    Mon Hoc
+                </th>
+            </tr>
+
+            <% data.map((item,index)=>{ %>
+                <tr>
+                    <td>
+                        <%= item._id %>
+                    </td>
+                    <td>
+                        <%= item.monhoc%>
+                    </td>
+                    <td>
+                        <img src=<%=item.file%> alt="">
+                    </td>
+                    <td>
+                        <input type="checkbox" name=<%=item._id %> value= <%=item._id %>
+  
+                    </td>
+                    <td>
+                        <input type="submit" value="Remove">
+                    </td>
+                </tr>
+            <%})%>
+        </table>
+
+        
+    </form>
+
+</body>
+
+</html>
